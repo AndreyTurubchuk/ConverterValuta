@@ -17,7 +17,7 @@ public class AppController {
 
     @GetMapping("/buy")
     public String buy(@RequestParam(value = "sum", required = false, defaultValue = "0.00") String sum) {
-    return cursService.buy(sum);
+        return cursService.buy(sum);
     }
 
     @GetMapping("/sell")
