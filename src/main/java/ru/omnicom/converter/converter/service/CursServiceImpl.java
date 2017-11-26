@@ -16,6 +16,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 public class CursServiceImpl implements CursService {
     private final static String STATUS_OK = "OK";
     private final static String STATUS_ERROR = "ERROR";
+    private final static Integer CODE_YENA = 392;
 
     @Autowired
     private CursRepository cursRepository;
@@ -36,7 +37,7 @@ public class CursServiceImpl implements CursService {
             while (i <= nodeList.getLength()) {
                 Element element = (Element) nodeList.item(i);
                 int numCode = Integer.parseInt(element.getElementsByTagName("NumCode").item(0).getTextContent());
-                if (numCode == 392) {
+                if (numCode == CODE_YENA) {
                     cursString = element.getElementsByTagName("Value").item(0).getTextContent();
                     curs = Double.parseDouble(cursString.replace(',', '.'));
                     break;
